@@ -1,0 +1,23 @@
+server:
+  servlet:
+    context-path: /config-client
+spring:
+  application:
+    name: config-client
+  profiles:
+    # \u8868\u793A\u4F7F\u7528\u7684\u662F\u54EA\u4E2A\u914D\u7F6E\u6587\u4EF6
+    active: dev
+  cloud:
+    config:
+      # \u53BB\u54EA\u4E2Aconfig server\u53BB\u83B7\u53D6\u914D\u7F6E\u6587\u4EF6\u4FE1\u606F
+      uri: http://172.18.106.253:8989/config-server
+      # \u4F7F\u7528\u7684\u662F\u54EA\u4E2A\u7248\u672C\u4FE1\u606F
+      label: master
+      # profile: dev \u548Cspring.profile.actives\u914D\u7F6E\u7684\u4F5C\u7528\u662F\u4E00\u6837\u7684
+      #token: aaa \u8FD9\u4E2A\u5728\u5F00\u542F\u4E86\u4EE4\u724C\u9A8C\u8BC1\u7684\u65F6\u5019\u4F7F\u7528\u7684\u5230
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://172.18.106.253:8761/eureka-server/eureka/
+

@@ -11,9 +11,26 @@ spring:
       server:
         git:
           uri: https://github.com/liyongfa/config-repo
+          # 搜索子目录下面的配置文件信息
+          search-paths: directory
+          clone-on-start: true  # 一启动就将配置文件下载到本地仓储中
           username: liyongfa
           password: yaya19970123
           basedir: E://config
+          force-pull: true # 如果是脏数据的话，就可以直接进行替换
+          # 进行模式匹配，可以同时匹配多个仓储，并且只获取需要的文件
+          repos:
+            any-one:  # 这就是随便使用一个命名来进行标识
+              pattern:
+                - 'special*/test*' #这个是进行模式匹配的
+              uri: https://github.com/liyongfa/config-repo #这个是资源所在的路径
+              clone-on-start: true #好像这个配置不起作用
+              force-pull: true
+              basedir: E://config-a
+              # 这里拉取的文件不是存储在E://config的
+
+
+        default-label: master # 默认是使用master分支下的配置文件
 
 eureka:
   client:
