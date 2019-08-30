@@ -1,0 +1,21 @@
+server:
+  port: 8989
+  servlet:
+    context-path: /config-server
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      enabled: true
+      server:
+        git:
+          uri: https://github.com/liyongfa/config-repo
+          username: liyongfa
+          password: yaya19970123
+          basedir: E://config
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://172.18.106.253:8761/eureka-server/eureka/

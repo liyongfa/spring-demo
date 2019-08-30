@@ -1,1 +1,14 @@
-
+server:
+  port: 8761
+  servlet:
+    context-path: /eureka-server
+spring:
+  application:
+    name: euruka-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://172.18.106.253:8761/eureka-server/eureka/
+    # \u5173\u95ED\u5BA2\u6237\u7AEF\u884C\u4E3A
+    register-with-eureka: false
+    fetch-registry: false
